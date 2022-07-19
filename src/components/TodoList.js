@@ -4,7 +4,15 @@ import Todo from "./Todo";
 const TodoList = ({ todos, setTodos, filteredTodos }) => {
   return (
     <div className="todo-container">
-      <ul className="todo-list">
+      <table id="todolist-table">
+        <tr>
+          <th>Date</th>
+          <th>List</th>
+          <th> </th>
+          <th>Action </th>
+          <th> </th>
+        </tr>
+
         {filteredTodos.map((todo) => (
           <Todo
             todos={todos}
@@ -12,10 +20,11 @@ const TodoList = ({ todos, setTodos, filteredTodos }) => {
             key={todo.id}
             text={todo.text}
             id={todo.id}
+            completed={todo.completed}
             todo={todo}
           />
         ))}
-      </ul>
+      </table>
     </div>
   );
 };

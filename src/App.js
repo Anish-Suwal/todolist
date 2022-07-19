@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import "./App.css";
-import "./components/todo.css";
+import "./components/Todo.css";
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
 
@@ -9,6 +9,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
+  const [inputTextSearch, setInputTextSearch] = useState("");
   {
     //functions
     /* passing down in props */
@@ -38,6 +39,9 @@ function App() {
         break;
     }
   };
+  // const searchFilter=()=>{
+
+  // }
 
   const saveLocalTodos = () => {
     if (todos.length > 0) {
@@ -56,15 +60,19 @@ function App() {
 
   return (
     <div className="todo-app">
-      <header>
-        <h1>Today's Plan!</h1>
-      </header>
+      <div className="heading-wrapper">
+        <div className="heading">
+          <h1>☑️ ToDo List!</h1>
+        </div>
+      </div>
       <Form
         todos={todos}
         setTodos={setTodos}
         inputText={inputText}
         setInputText={setInputText}
         setStatus={setStatus}
+        inputTextSearch={inputTextSearch}
+        setInputTextSearch={setInputTextSearch}
       />
 
       <TodoList
